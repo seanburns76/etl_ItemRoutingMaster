@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/1/2018 4:56:59 PM"
@@ -11,9 +11,932 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionGUID="{5CD440EE-1DCE-4737-8726-DE13F82D13D8}">
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{E2354583-994F-41FC-A122-CF676646CBB7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[samson.S1049ZKM.apache]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{34A91FA5-C780-43F7-823C-FB6026056ADF}"
+      DTS:ObjectName="samson.S1049ZKM.apache">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=samson;User ID=apache;Initial Catalog=S1049ZKM;Provider=IBMDASQL.DataSource.1;Persist Security Info=True;Force Translate=37;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfTwwzMGIskK13Vv4l910agAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACYrxaiKH4oiKs8O4mgHsZzAAAAAASAAACgAAAAEAAAAMVDljks8BhSVVSg0WE7m+gQAAAAGWs5WpzfiH1AQOKXr9t/NxQAAACUrkX9eH3ncEsW8V8q6ouKkih2GQ</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ustull0036\apsreport.Finance.ssis]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B2F433C1-0C42-42A1-B90A-910FC49E70DB}"
+      DTS:ObjectName="ustull0036\apsreport.Finance.ssis">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ustull0036\apsreport;User ID=ssis;Initial Catalog=Finance;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfTwwzMGIskK13Vv4l910agAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB6FJ+CinU+Z33R6rXicE6LAAAAAASAAACgAAAAEAAAAEeiOpEV7uwe5xQ3FDy8148YAAAA7MgJQDrPfgEQpNdpYyEInX9uxjBCgh/6FAAAALivFIp/QJiSj5niwEmruNHp844G</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Pull Items"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{018B3EE2-1760-4F53-995E-8359F6C0074F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Pull Items"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Pull Items\ItemMaster"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="ItemMaster"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[ItemMaster]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Pull Items\ItemMaster.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ustull0036\apsreport.Finance.ssis]"
+                  connectionManagerRefId="Package.ConnectionManagers[ustull0036\apsreport.Finance.ssis]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].Columns[PARTNUMBER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="PARTNUMBER"
+                      externalMetadataColumnId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[PARTNUMBER]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[PARTNUMBER]" />
+                    <inputColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].Columns[BRANCH]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="BRANCH"
+                      externalMetadataColumnId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[BRANCH]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[BRANCH]" />
+                    <inputColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].Columns[WORKCENTER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="WORKCENTER"
+                      externalMetadataColumnId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[WORKCENTER]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[WORKCENTER]" />
+                    <inputColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].Columns[DESCRIPTION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="DESCRIPTION"
+                      externalMetadataColumnId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPTION]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[DESCRIPTION]" />
+                    <inputColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].Columns[ROUTING]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="ROUTING"
+                      externalMetadataColumnId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[ROUTING]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[ROUTING]" />
+                    <inputColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].Columns[OPSEQ]"
+                      cachedDataType="numeric"
+                      cachedName="OPSEQ"
+                      cachedPrecision="31"
+                      cachedScale="26"
+                      externalMetadataColumnId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[OPSEQ]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[OPSEQ]" />
+                    <inputColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].Columns[TIMEBASE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="TIMEBASE"
+                      externalMetadataColumnId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[TIMEBASE]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[TIMEBASE]" />
+                    <inputColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].Columns[TIMEBASEVALUE]"
+                      cachedDataType="decimal"
+                      cachedName="TIMEBASEVALUE"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[TIMEBASEVALUE]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[TIMEBASEVALUE]" />
+                    <inputColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].Columns[UNITOFMEASURE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="UNITOFMEASURE"
+                      externalMetadataColumnId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[UNITOFMEASURE]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[UNITOFMEASURE]" />
+                    <inputColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].Columns[STANDARDMACHINE]"
+                      cachedDataType="decimal"
+                      cachedName="STANDARDMACHINE"
+                      externalMetadataColumnId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[STANDARDMACHINE]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[STANDARDMACHINE]" />
+                    <inputColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].Columns[STANDARDLABOR]"
+                      cachedDataType="decimal"
+                      cachedName="STANDARDLABOR"
+                      externalMetadataColumnId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[STANDARDLABOR]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[STANDARDLABOR]" />
+                    <inputColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].Columns[SETUPLABOR]"
+                      cachedDataType="decimal"
+                      cachedName="SETUPLABOR"
+                      externalMetadataColumnId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[SETUPLABOR]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[SETUPLABOR]" />
+                    <inputColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].Columns[STANDARDCREW]"
+                      cachedDataType="numeric"
+                      cachedName="STANDARDCREW"
+                      cachedPrecision="5"
+                      externalMetadataColumnId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[STANDARDCREW]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[STANDARDCREW]" />
+                    <inputColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].Columns[EFFECTIVEFROM]"
+                      cachedDataType="numeric"
+                      cachedName="EFFECTIVEFROM"
+                      cachedPrecision="6"
+                      externalMetadataColumnId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[EFFECTIVEFROM]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[EFFECTIVEFROM]" />
+                    <inputColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].Columns[EFFECTIVETO]"
+                      cachedDataType="numeric"
+                      cachedName="EFFECTIVETO"
+                      cachedPrecision="6"
+                      externalMetadataColumnId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[EFFECTIVETO]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[EFFECTIVETO]" />
+                    <inputColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].Columns[UPDATEDATE]"
+                      cachedDataType="numeric"
+                      cachedName="UPDATEDATE"
+                      cachedPrecision="6"
+                      externalMetadataColumnId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[UPDATEDATE]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[UPDATEDATE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[PARTNUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="PARTNUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[BRANCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="BRANCH" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[WORKCENTER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="WORKCENTER" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="DESCRIPTION" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[ROUTING]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ROUTING" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[OPSEQ]"
+                      dataType="numeric"
+                      name="OPSEQ"
+                      precision="31" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[TIMEBASE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="TIMEBASE" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[TIMEBASEVALUE]"
+                      dataType="numeric"
+                      name="TIMEBASEVALUE"
+                      precision="28"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[UNITOFMEASURE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="UNITOFMEASURE" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[STANDARDMACHINE]"
+                      dataType="numeric"
+                      name="STANDARDMACHINE"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[STANDARDLABOR]"
+                      dataType="numeric"
+                      name="STANDARDLABOR"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[SETUPLABOR]"
+                      dataType="numeric"
+                      name="SETUPLABOR"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[STANDARDCREW]"
+                      dataType="numeric"
+                      name="STANDARDCREW"
+                      precision="5" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[EFFECTIVEFROM]"
+                      dataType="numeric"
+                      name="EFFECTIVEFROM"
+                      precision="6" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[EFFECTIVETO]"
+                      dataType="numeric"
+                      name="EFFECTIVETO"
+                      precision="6" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input].ExternalColumns[UPDATEDATE]"
+                      dataType="numeric"
+                      name="UPDATEDATE"
+                      precision="6" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Pull Items\ItemMaster.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Pull Items\ItemMaster.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Pull Items\ItemMaster.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Pull Items\ItemMaster.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Pull Items\ItemMaster.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Pull Items\samson"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="samson"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  
+irkitl AS PartNumber,
+trim(irmmcu) AS Branch,
+trim(irmcu) AS WorkCenter ,
+irdsc1 AS Description,
+irtrt AS Routing,
+iropsq/100 AS OpSeq,
+irtimb AS TimeBase,
+CASE
+	WHEN irtimb = 'U' THEN 1
+	WHEN irtimb = '1' THEN .1
+	WHEN irtimb = '2' THEN .01
+	WHEN irtimb = '3' THEN .001
+	WHEN irtimb = '4' THEN .0001 END AS TimeBaseValue ,
+iruom AS UnitOfMeasure,
+irrunm AS StandardMachine,
+irrunl AS StandardLabor ,
+irsetl AS SetUpLabor,
+irsetc AS StandardCrew,
+irefff AS EffectiveFrom,
+irefft AS EffectiveTo,
+irupmj AS UpdateDate
+
+
+
+
+FROM amsdta.f3003</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Pull Items\samson.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[samson.S1049ZKM.apache]"
+                  connectionManagerRefId="Package.ConnectionManagers[samson.S1049ZKM.apache]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Pull Items\samson.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[PARTNUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[PARTNUMBER]"
+                      length="25"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[PARTNUMBER]"
+                      name="PARTNUMBER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[BRANCH]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[BRANCH]"
+                      length="12"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[BRANCH]"
+                      name="BRANCH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[WORKCENTER]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[WORKCENTER]"
+                      length="12"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[WORKCENTER]"
+                      name="WORKCENTER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                      length="30"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                      name="DESCRIPTION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[ROUTING]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[ROUTING]"
+                      length="3"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[ROUTING]"
+                      name="ROUTING"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[OPSEQ]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[OPSEQ]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[OPSEQ]"
+                      name="OPSEQ"
+                      precision="31"
+                      scale="26"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[TIMEBASE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[TIMEBASE]"
+                      length="1"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[TIMEBASE]"
+                      name="TIMEBASE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[TIMEBASEVALUE]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[TIMEBASEVALUE]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[TIMEBASEVALUE]"
+                      name="TIMEBASEVALUE"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[UNITOFMEASURE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[UNITOFMEASURE]"
+                      length="2"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[UNITOFMEASURE]"
+                      name="UNITOFMEASURE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[STANDARDMACHINE]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[STANDARDMACHINE]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[STANDARDMACHINE]"
+                      name="STANDARDMACHINE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[STANDARDLABOR]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[STANDARDLABOR]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[STANDARDLABOR]"
+                      name="STANDARDLABOR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[SETUPLABOR]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[SETUPLABOR]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[SETUPLABOR]"
+                      name="SETUPLABOR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[STANDARDCREW]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[STANDARDCREW]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[STANDARDCREW]"
+                      name="STANDARDCREW"
+                      precision="5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[EFFECTIVEFROM]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[EFFECTIVEFROM]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[EFFECTIVEFROM]"
+                      name="EFFECTIVEFROM"
+                      precision="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[EFFECTIVETO]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[EFFECTIVETO]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[EFFECTIVETO]"
+                      name="EFFECTIVETO"
+                      precision="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[UPDATEDATE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[UPDATEDATE]"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Output].Columns[UPDATEDATE]"
+                      name="UPDATEDATE"
+                      precision="6"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[PARTNUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="PARTNUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[BRANCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="BRANCH" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[WORKCENTER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="WORKCENTER" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="DESCRIPTION" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[ROUTING]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ROUTING" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[OPSEQ]"
+                      dataType="numeric"
+                      name="OPSEQ"
+                      precision="31"
+                      scale="26" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[TIMEBASE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="TIMEBASE" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[TIMEBASEVALUE]"
+                      dataType="decimal"
+                      name="TIMEBASEVALUE"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[UNITOFMEASURE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="UNITOFMEASURE" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[STANDARDMACHINE]"
+                      dataType="decimal"
+                      name="STANDARDMACHINE" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[STANDARDLABOR]"
+                      dataType="decimal"
+                      name="STANDARDLABOR" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[SETUPLABOR]"
+                      dataType="decimal"
+                      name="SETUPLABOR" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[STANDARDCREW]"
+                      dataType="numeric"
+                      name="STANDARDCREW"
+                      precision="5" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[EFFECTIVEFROM]"
+                      dataType="numeric"
+                      name="EFFECTIVEFROM"
+                      precision="6" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[EFFECTIVETO]"
+                      dataType="numeric"
+                      name="EFFECTIVETO"
+                      precision="6" />
+                    <externalMetadataColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Output].ExternalColumns[UPDATEDATE]"
+                      dataType="numeric"
+                      name="UPDATEDATE"
+                      precision="6" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[PARTNUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[PARTNUMBER]"
+                      name="PARTNUMBER" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[BRANCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[BRANCH]"
+                      name="BRANCH" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[WORKCENTER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[WORKCENTER]"
+                      name="WORKCENTER" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                      name="DESCRIPTION" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[ROUTING]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[ROUTING]"
+                      name="ROUTING" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[OPSEQ]"
+                      dataType="numeric"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[OPSEQ]"
+                      name="OPSEQ"
+                      precision="31"
+                      scale="26" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[TIMEBASE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[TIMEBASE]"
+                      name="TIMEBASE" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[TIMEBASEVALUE]"
+                      dataType="decimal"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[TIMEBASEVALUE]"
+                      name="TIMEBASEVALUE"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[UNITOFMEASURE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[UNITOFMEASURE]"
+                      name="UNITOFMEASURE" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[STANDARDMACHINE]"
+                      dataType="decimal"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[STANDARDMACHINE]"
+                      name="STANDARDMACHINE" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[STANDARDLABOR]"
+                      dataType="decimal"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[STANDARDLABOR]"
+                      name="STANDARDLABOR" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[SETUPLABOR]"
+                      dataType="decimal"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[SETUPLABOR]"
+                      name="SETUPLABOR" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[STANDARDCREW]"
+                      dataType="numeric"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[STANDARDCREW]"
+                      name="STANDARDCREW"
+                      precision="5" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[EFFECTIVEFROM]"
+                      dataType="numeric"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[EFFECTIVEFROM]"
+                      name="EFFECTIVEFROM"
+                      precision="6" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[EFFECTIVETO]"
+                      dataType="numeric"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[EFFECTIVETO]"
+                      name="EFFECTIVETO"
+                      precision="6" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[UPDATEDATE]"
+                      dataType="numeric"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[UPDATEDATE]"
+                      name="UPDATEDATE"
+                      precision="6" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Pull Items\samson.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Pull Items.Paths[OLE DB Source Output]"
+              endId="Package\Pull Items\ItemMaster.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Pull Items\samson.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="126,42"
+          Id="Package\Pull Items"
+          TopLeft="210,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Pull Items">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="115,42"
+          Id="Package\Pull Items\samson"
+          TopLeft="113,62" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Pull Items\ItemMaster"
+          TopLeft="243,204" />
+        <EdgeLayout
+          Id="Package\Pull Items.Paths[OLE DB Source Output]"
+          TopLeft="170.5,104">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="139,100"
+              Start="0,0"
+              End="139,92.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46"
+                    Point2="0,50"
+                    Point3="4,50" />
+                  <mssgle:LineSegment
+                    End="135,50" />
+                  <mssgle:CubicBezierSegment
+                    Point1="135,50"
+                    Point2="139,50"
+                    Point3="139,54" />
+                  <mssgle:LineSegment
+                    End="139,92.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Pull Items\samson">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Pull Items\ItemMaster">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
